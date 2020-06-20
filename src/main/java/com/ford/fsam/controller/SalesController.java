@@ -25,6 +25,8 @@ public class SalesController {
     SalesService salesService;
     UserContext userContext;
 
+
+
     @PostMapping("/register")
     public ResponseEntity<String> register(@RequestParam String mobilePhone, @RequestParam String userName){
         if(userContext.getCurrentUserInfo()==null){
