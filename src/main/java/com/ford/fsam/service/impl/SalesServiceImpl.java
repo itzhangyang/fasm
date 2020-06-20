@@ -13,6 +13,7 @@ import com.ford.fsam.service.*;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.List;
@@ -24,6 +25,8 @@ public class SalesServiceImpl implements SalesService {
     PointAccountService pointAccountService;
     UserEventService userEventService;
     UserRoleService userRoleService;
+
+    @Transactional
     @Override
     public void register(String mobilePhone, String userName) {
         User user = User.builder().mobilePhone(mobilePhone).userName(userName).build();
@@ -36,6 +39,7 @@ public class SalesServiceImpl implements SalesService {
         pointAccountService.addPoint(pointAccountId,1000);
     }
 
+    @Transactional
     @Override
     public void signIn(String mobilePhone) {
         User user = userService.getUserByMobilePhone(mobilePhone);
