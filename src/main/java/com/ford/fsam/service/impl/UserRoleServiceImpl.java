@@ -5,16 +5,19 @@ import com.ford.fsam.pojo.dto.Role;
 import com.ford.fsam.pojo.dto.User;
 import com.ford.fsam.pojo.entity.UserRoleEntity;
 import com.ford.fsam.service.UserRoleService;
+import lombok.AllArgsConstructor;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
+@Service
+@AllArgsConstructor
 public class UserRoleServiceImpl implements UserRoleService {
     UserRoleRepository userRoleRepository;
-    UserRoleServiceImpl self;
     @Override
     public void addUser(User user, Role role) {
-        List<Role> roles = self.getUserRoles(user);
+        List<Role> roles = getUserRoles(user);
         if(roles!=null&&!roles.isEmpty()){
             for(Role roleInList: roles){
                 if(roleInList.equals(role)){

@@ -10,6 +10,7 @@ import com.ford.fsam.service.UserRoleService;
 import com.ford.fsam.service.UserService;
 import com.ford.fsam.util.context.LoginUserInfo;
 import com.ford.fsam.util.context.UserContext;
+import lombok.AllArgsConstructor;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
@@ -24,6 +25,7 @@ import java.util.stream.Stream;
 
 @Aspect
 @Component
+@AllArgsConstructor
 public class NeedRolesAspect {
     UserService userService;
     UserRoleService roleService;

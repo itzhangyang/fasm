@@ -10,7 +10,6 @@ import com.ford.fsam.service.PointAccountService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -20,7 +19,6 @@ import java.util.stream.Collectors;
 public class PointAccountServiceImpl implements PointAccountService {
     PointAccountRepository pointAccountRepository;
 
-    PointAccountService self;
 
     @Override
     public Long createPointAccount(Long userId) {
@@ -58,7 +56,7 @@ public class PointAccountServiceImpl implements PointAccountService {
 
     @Override
     public void addPoint(Long accountId, Integer amount) {
-        PointAccount pointAccount = self.getAccountById(accountId);
+        PointAccount pointAccount = getAccountById(accountId);
         PointAccountEntity entity = PointAccountEntity.builder().userId(pointAccount.getUserId()).balance(pointAccount.getBalance()+amount).status(pointAccount.getStatus()).id(pointAccount.getId()).build();
         pointAccountRepository.save(entity);
     }

@@ -26,7 +26,7 @@ public class ExceptionHandlerAdvice {
     }
 
     @ExceptionHandler(NoCurrentSignInTaskException.class)
-    ResponseEntity<String> handleNoCurrentSignInTaskException(MultiplePointAccountException e) {
+    ResponseEntity<String> handleNoCurrentSignInTaskException(NoCurrentSignInTaskException e) {
         log.error(e.getMessage(), e);
         return ResponseEntity.ok().body("No sign task currently");
     }
@@ -43,7 +43,7 @@ public class ExceptionHandlerAdvice {
         log.error(e.getMessage(), e);
         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Point Account Already exist");
     }
-    @ExceptionHandler(MultipleUserException.class)
+    @ExceptionHandler(UserAlreadyExistException.class)
     ResponseEntity<String> handleUserAlreadyExistException(UserAlreadyExistException e) {
         log.error(e.getMessage(), e);
         return ResponseEntity.ok().body("User already exist ");

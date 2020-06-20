@@ -10,11 +10,15 @@ import com.ford.fsam.pojo.dto.Role;
 import com.ford.fsam.pojo.dto.User;
 import com.ford.fsam.pojo.dto.UserEvent;
 import com.ford.fsam.service.*;
+import lombok.AllArgsConstructor;
+import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.List;
 
+@Service
+@AllArgsConstructor
 public class SalesServiceImpl implements SalesService {
     UserService userService;
     PointAccountService pointAccountService;

@@ -17,6 +17,7 @@ import java.util.Objects;
 @AllArgsConstructor
 public class PointAccountEntity {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private Long userId;
     private Integer balance;
